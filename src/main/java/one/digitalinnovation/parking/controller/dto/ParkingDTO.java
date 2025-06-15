@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ParkingDTO {
-
+    private int customerId;
     private String id;
     private String license;
     private String state;
@@ -82,4 +82,11 @@ public class ParkingDTO {
     public void setBill(Double bill) {
         this.bill = bill;
     }
-}
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }}

@@ -1,7 +1,8 @@
 package one.digitalinnovation.parking.controller.dto;
 
 public class ParkingCreateDTO {
-
+// DTO for creating a new parking entry
+    private int customerId;
     private String license;
     private String state;
     private String model;
@@ -37,5 +38,13 @@ public class ParkingCreateDTO {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 }

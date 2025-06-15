@@ -64,8 +64,8 @@ public class ParkingController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ParkingDTO> update(@PathVariable String id, @RequestBody ParkingCreateDTO parkingCreteDTO) {
-        Parking parkingUpdate = parkingMapper.toParkingCreate(parkingCreteDTO);
+    public ResponseEntity<ParkingDTO> update(@PathVariable String id, @RequestBody ParkingCreateDTO parkingCreateDTO) {
+        Parking parkingUpdate = parkingMapper.toParkingCreate(parkingCreateDTO);
         Parking parking = parkingService.update(id, parkingUpdate);
         return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
     }
