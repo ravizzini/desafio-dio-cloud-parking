@@ -46,7 +46,7 @@ public class CustomerController {
          var customerCreate = customerMapper.toCustomerCreate(dto);
          var parking = customerService.create(customerCreate);
          var result = customerMapper.toCustomerDTO(parking);
-         return ResponseEntity.status(HttpStatus.CREATED).body(result)
+         return ResponseEntity.status(HttpStatus.CREATED).body(result);
      }
 
      @PutMapping("/{id}")

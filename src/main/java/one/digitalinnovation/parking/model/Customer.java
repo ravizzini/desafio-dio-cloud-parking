@@ -1,6 +1,10 @@
 package one.digitalinnovation.parking.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -11,13 +15,15 @@ public class Customer {
     private String name;
     private String email;
     private String phoneNumber;
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Parking> parkings;
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Parking> parkings = new ArrayList<>();
 
-    public Customer(int id, String name, String email) {
+    public Customer(int id, String name, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public Customer() {
@@ -55,11 +61,11 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Set<Parking> getParkings() {
+    public List<Parking> getParkings() {
         return parkings;
     }
 
-    public void setParkings(Set<Parking> parkings) {
+    public void setParkings(List<Parking> parkings) {
         this.parkings = parkings;
     }
 }
