@@ -36,6 +36,7 @@ public class ParkingService {
         String uuid = getUUID();
         parkingCreate.setId(uuid);
         parkingCreate.setEntryDate(LocalDateTime.now());
+        parkingCreate.setCustomer(parkingCreate.getCustomer().getId());
         parkingRepository.save(parkingCreate);
         return parkingCreate;
     }

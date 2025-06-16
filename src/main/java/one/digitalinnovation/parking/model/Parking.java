@@ -27,6 +27,7 @@ public class Parking {
         this.state = state;
         this.model = model;
         this.color = color;
+        this.customer = new Customer();
     }
 
     public Parking() {
@@ -94,5 +95,16 @@ public class Parking {
 
     public void setBill(Double bill) {
         this.bill = bill;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Long id) {
+        if (this.customer == null) {
+            this.customer = new Customer();
+        }
+        this.customer.setId(id);
     }
 }

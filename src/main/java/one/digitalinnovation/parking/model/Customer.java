@@ -5,13 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String email;
     private String phoneNumber;
@@ -19,7 +18,7 @@ public class Customer {
     @JsonIgnore
     private List<Parking> parkings = new ArrayList<>();
 
-    public Customer(int id, String name, String email, String phoneNumber) {
+    public Customer(Long id, String name, String email, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -29,11 +28,11 @@ public class Customer {
     public Customer() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
